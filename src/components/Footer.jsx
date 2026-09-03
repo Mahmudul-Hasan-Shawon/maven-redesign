@@ -1,0 +1,456 @@
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from '../hooks/useAnimations'
+import { brand } from '../data/content'
+import { Phone, Mail, MapPin, Clock, Send, Check, ArrowRight, ArrowUpRight } from 'lucide-react'
+
+const socialIcons = {
+  instagram: (
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  ),
+  facebook: (
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+  ),
+  twitter: (
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+  ),
+  linkedin: (
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v1.5"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+  ),
+}
+
+const pageLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Our Work', href: '/portfolio' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+]
+
+const serviceLinks = [
+  'Custom Website Design',
+  'Website Development',
+  'Website Management',
+  'SEO Services',
+  'Digital Marketing',
+  'E-commerce Solutions',
+  'Logo & Branding',
+]
+
+const legalLinks = [
+  { name: 'Privacy Policy', href: '#' },
+  { name: 'Terms of Service', href: '#' },
+  { name: 'Cookie Policy', href: '#' },
+]
+
+export default function Footer({ onNavigate }) {
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
+  const [ref, inView] = useInView()
+
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    if (email) setSubscribed(true)
+  }
+
+  const fadeUp = {
+    initial: { opacity: 0, y: 28 },
+    animate: inView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  }
+
+  return (
+    <footer ref={ref} className="relative overflow-hidden bg-[#07070C] border-t border-white/5">
+      {/* Glow accents */}
+      <div className="absolute -top-40 left-1/4 w-[500px] h-[500px] rounded-full bg-[#612C8B]/10 blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-40 right-1/5 w-[400px] h-[400px] rounded-full bg-[#8B4FBF]/10 blur-[140px] pointer-events-none" />
+
+      {/* ===== Main CTA Card (maven.png) ===== */}
+      <div className="relative max-w-6xl mx-auto px-6 pt-16">
+        <motion.div {...fadeUp} className="cta-card">
+          <div className="cta-card-glow cta-card-glow-one" />
+          <div className="cta-card-glow cta-card-glow-two" />
+          <div className="cta-noise" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="max-w-xl text-center lg:text-left">
+              <span className="cta-badge">
+                <span className="cta-badge-dot" />
+                Independent creative studio
+              </span>
+              <h2 className="cta-heading">
+                Let&rsquo;s create something
+                <br />
+                impossible to ignore.
+              </h2>
+              <p className="cta-sub">
+                Strategy, design and digital experiences made for brands ready to move differently.
+              </p>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                <a onClick={() => onNavigate('/contact')} className="cta-primary">
+                  Start a project <ArrowRight size={18} />
+                </a>
+                <a onClick={() => onNavigate('/portfolio')} className="cta-secondary group">
+                  View selected work <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="cta-art"
+              aria-hidden="true"
+            >
+              <div className="cta-art-halo" />
+              <img src="/images/maven.png" alt="" className="cta-art-img" />
+              <div className="cta-float cta-float-square"><span /></div>
+              <div className="cta-float cta-float-circle"><span /></div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Newsletter CTA strip */}
+      <div className="relative max-w-6xl mx-auto px-6 pt-16">
+        <div
+          className="rounded-3xl p-8 md:p-10 relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #4A1F6B 0%, #612C8B 55%, #8B4FBF 100%)' }}
+        >
+          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-white/10" />
+          <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-white/5" />
+          <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="max-w-md">
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                Stay in the Loop
+              </h3>
+              <p className="text-white/75 text-base">
+                Get the latest marketing tips, success stories, and exclusive offers — straight to your inbox.
+              </p>
+            </div>
+            {subscribed ? (
+              <div className="flex items-center gap-3 bg-white/15 backdrop-blur-sm rounded-2xl px-6 py-4">
+                <Check size={20} className="text-white" />
+                <span className="text-white font-semibold">You're subscribed! Welcome to the Maven family.</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="w-full lg:w-auto flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="flex-1 min-w-[260px] px-5 py-4 rounded-2xl bg-white/15 border border-white/20 text-white text-sm placeholder:text-white/60 focus:border-white/50 focus:ring-2 focus:ring-white/30 outline-none transition-all"
+                />
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#4A1F6B] rounded-2xl font-bold text-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  Subscribe <Send size={16} />
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer grid */}
+      <div className="relative max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <a onClick={() => onNavigate('/')} className="block mb-5 cursor-pointer">
+              <img src="/images/logo.png" alt={brand.name} className="h-10 w-auto mb-1" />
+            </a>
+            <p className="text-gray-500 text-base leading-relaxed mb-5">
+              Custom built websites and digital marketing services for businesses of all sizes. Based in {brand.address.city}, {brand.address.state} — serving clients nationwide and worldwide.
+            </p>
+            <div className="flex gap-3">
+              {Object.entries(brand.social).map(([platform, url]) => {
+                const Icon = socialIcons[platform] || socialIcons.instagram
+                return (
+                  <a key={platform} href={url} target="_blank" rel="noopener noreferrer"
+                    aria-label={platform}
+                    className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-[#612C8B] hover:to-[#8B4FBF] hover:text-white transition-all duration-300 hover:-translate-y-1">
+                    {Icon}
+                  </a>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Pages */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Explore</h4>
+            <ul className="space-y-3">
+              {pageLinks.map((link) => (
+                <li key={link.href}>
+                  <a onClick={() => onNavigate(link.href)}
+                    className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
+                    <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Services</h4>
+            <ul className="space-y-3">
+              {serviceLinks.map((s) => (
+                <li key={s}>
+                  <a onClick={() => onNavigate('/services')}
+                    className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
+                    <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
+                    {s}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Get in Touch</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <Phone size={16} className="text-[#8B4FBF] mt-0.5 flex-shrink-0" />
+                <a href={`tel:${brand.phone.replace(/[^+\d]/g, '')}`} className="text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors">
+                  {brand.phone}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail size={16} className="text-[#8B4FBF] mt-0.5 flex-shrink-0" />
+                <a href={`mailto:${brand.email}`} className="text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors break-all">
+                  {brand.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="text-[#8B4FBF] mt-0.5 flex-shrink-0" />
+                <span className="text-gray-500 text-sm">
+                  {brand.address.street}<br />
+                  {brand.address.city}, {brand.address.state} {brand.address.zip}
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock size={16} className="text-[#8B4FBF] mt-0.5 flex-shrink-0" />
+                <span className="text-gray-500 text-sm">Open Mon-Sun · 9:00 AM – 5:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="relative border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-gray-600 text-xs text-center sm:text-left">
+            &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            {legalLinks.map((link) => (
+              <a key={link.name} href={link.href} className="text-gray-600 hover:text-[#8B4FBF] transition-colors text-xs">
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .cta-card {
+          position: relative;
+          overflow: hidden;
+          padding: clamp(2.4rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+          border-radius: 2rem;
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+          background: linear-gradient(135deg, #4A1F6B 0%, #612C8B 50%, #8B4FBF 100%);
+          isolation: isolate;
+        }
+
+        .cta-card-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(70px);
+          pointer-events: none;
+          z-index: -1;
+        }
+        .cta-card-glow-one {
+          top: -6rem;
+          right: 8%;
+          width: 22rem;
+          height: 22rem;
+          background: rgba(255,255,255,0.12);
+        }
+        .cta-card-glow-two {
+          bottom: -7rem;
+          left: 25%;
+          width: 20rem;
+          height: 20rem;
+          background: rgba(30,8,58,0.45);
+        }
+
+        .cta-noise {
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          opacity: 0.5;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+        }
+
+        .cta-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          padding: 0.4rem 0.85rem;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,0.22);
+          background: rgba(255,255,255,0.1);
+          backdrop-filter: blur(8px);
+          color: rgba(255,255,255,0.85);
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          margin-bottom: 1.4rem;
+        }
+        .cta-badge-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #DACAFF;
+          box-shadow: 0 0 10px rgba(218,202,255,0.8);
+        }
+
+        .cta-heading {
+          color: #fff;
+          font-size: clamp(1.8rem, 4.4vw, 3rem);
+          line-height: 1.08;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          margin-bottom: 1rem;
+        }
+
+        .cta-sub {
+          color: rgba(255,255,255,0.78);
+          font-size: 1.02rem;
+          line-height: 1.6;
+          margin-bottom: 1.6rem;
+          max-width: 34rem;
+        }
+
+        .cta-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          padding: 0.85rem 1.5rem;
+          border-radius: 999px;
+          color: #4A1F6B;
+          font-weight: 700;
+          font-size: 0.95rem;
+          background: #fff;
+          cursor: pointer;
+          box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.85rem 0.5rem;
+          color: rgba(255,255,255,0.9);
+          font-weight: 600;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: color 0.3s ease;
+        }
+        .cta-secondary:hover {
+          color: #fff;
+        }
+
+        .cta-art {
+          position: relative;
+          flex-shrink: 0;
+          width: min(100%, 420px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .cta-art-halo {
+          position: absolute;
+          inset: 5%;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(218,202,255,0.35), transparent);
+          filter: blur(28px);
+        }
+        .cta-art-img {
+          position: relative;
+          width: 100%;
+          height: auto;
+          max-height: 320px;
+          object-fit: contain;
+          filter: drop-shadow(0 20px 40px rgba(0,0,0,0.45));
+        }
+
+        .cta-float {
+          position: absolute;
+          animation: cta-float 6s ease-in-out infinite;
+        }
+        .cta-float-square {
+          top: 6%;
+          right: 8%;
+          width: 15px;
+          height: 15px;
+          border-radius: 3px;
+          background: rgba(255,255,255,0.55);
+        }
+        .cta-float-square span {
+          position: absolute;
+          inset: -9px;
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 6px;
+        }
+        .cta-float-circle {
+          bottom: 9%;
+          left: 4%;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(218,202,255,0.9);
+          animation-delay: 1.5s;
+        }
+        .cta-float-circle span {
+          position: absolute;
+          inset: -8px;
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 50%;
+        }
+        @keyframes cta-float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 900px) {
+          .cta-card {
+            border-radius: 1.5rem;
+          }
+          .cta-art {
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+          }
+        }
+      `}</style>
+    </footer>
+  )
+}
