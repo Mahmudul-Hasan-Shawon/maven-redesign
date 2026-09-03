@@ -55,7 +55,7 @@ export default function Portfolio({ onNavigate }) {
     : portfolio.filter((p) => p.category === active)
 
   return (
-    <section ref={ref} className="py-32 px-6">
+    <section ref={ref} className="py-32 px-6 pb-0">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

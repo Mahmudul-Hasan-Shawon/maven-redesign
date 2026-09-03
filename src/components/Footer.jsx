@@ -72,36 +72,39 @@ export default function Footer({ onNavigate }) {
             </div>
           </div>
 
-          {/* Pages */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Explore</h4>
-            <ul className="space-y-3">
-              {pageLinks.map((link) => (
-                <li key={link.href}>
-                  <a onClick={() => onNavigate(link.href)}
-                    className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
-                    <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Pages + Services (side by side on mobile only) */}
+          <div className="grid grid-cols-2 sm:grid-cols-1 sm:col-span-2 lg:contents">
+            {/* Pages */}
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Explore</h4>
+              <ul className="space-y-3">
+                {pageLinks.map((link) => (
+                  <li key={link.href}>
+                    <a onClick={() => onNavigate(link.href)}
+                      className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
+                      <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Services</h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((s) => (
-                <li key={s}>
-                  <a onClick={() => onNavigate('/services')}
-                    className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
-                    <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Services */}
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Services</h4>
+              <ul className="space-y-3">
+                {serviceLinks.map((s) => (
+                  <li key={s}>
+                    <a onClick={() => onNavigate('/services')}
+                      className="group inline-flex items-center gap-2 text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors cursor-pointer">
+                      <span className="h-px w-0 group-hover:w-4 bg-[#8B4FBF] transition-all duration-300" />
+                      {s}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Contact */}
@@ -116,7 +119,7 @@ export default function Footer({ onNavigate }) {
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-[#8B4FBF] mt-0.5 flex-shrink-0" />
-                <a href={`mailto:${brand.email}`} className="text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors break-all">
+                <a href={`mailto:${brand.email}`} className="text-gray-500 text-sm hover:text-[#8B4FBF] transition-colors whitespace-nowrap">
                   {brand.email}
                 </a>
               </li>
