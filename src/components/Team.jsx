@@ -27,7 +27,7 @@ export default function Team() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch mb-14">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -38,7 +38,7 @@ export default function Team() {
             <img
               src="/images/team.jpg"
               alt="The Maven Marketing team collaborating in the studio"
-              className="relative rounded-3xl w-full h-[420px] object-cover border border-white/10"
+              className="relative rounded-3xl w-full h-full min-h-[420px] object-cover border border-white/10"
               loading="lazy"
             />
           </motion.div>
@@ -50,7 +50,7 @@ export default function Team() {
               transition={{ delay: 0.2 }}
               className="glass rounded-3xl p-8 hover:border-[#612C8B]/30 transition-all duration-500"
             >
-              <div className="flex items-start gap-4 mb-3">
+              <div className="flex items-center gap-4 mb-3">
                 <div className="w-12 h-12 rounded-2xl bg-[#612C8B]/20 flex items-center justify-center flex-shrink-0">
                   <Code size={24} className="text-[#8B4FBF]" />
                 </div>
@@ -65,7 +65,7 @@ export default function Team() {
               transition={{ delay: 0.3 }}
               className="glass rounded-3xl p-8 hover:border-[#612C8B]/30 transition-all duration-500"
             >
-              <div className="flex items-start gap-4 mb-3">
+              <div className="flex items-center gap-4 mb-3">
                 <div className="w-12 h-12 rounded-2xl bg-[#8B4FBF]/20 flex items-center justify-center flex-shrink-0">
                   <Megaphone size={24} className="text-[#8B4FBF]" />
                 </div>

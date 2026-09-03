@@ -176,12 +176,11 @@ export default function IntegrationNetwork() {
               </div>
 
               <h2 className="kb-title">
-                Everything connects to <span>one intelligent system.</span>
+                Your entire digital presence, <span>working as one.</span>
               </h2>
 
               <p className="kb-description">
-                Watch information flow smoothly between your favorite tools
-                through animated, responsive connections.
+                From your website to analytics and marketing platforms, Maven keeps every tool connected, synchronized, and driving toward one goal — your growth.
               </p>
             </header>
 

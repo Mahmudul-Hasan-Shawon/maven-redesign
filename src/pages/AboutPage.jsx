@@ -32,11 +32,9 @@ export default function AboutPage({ onNavigate }) {
         </div>
       </section>
       <About onNavigate={onNavigate} />
-      <Stats />
+      {/* <Stats /> */}
       <Values />
       <Team onNavigate={onNavigate} />
-      <Testimonials />
-      <CTA onNavigate={onNavigate} />
     </>
   )
 }

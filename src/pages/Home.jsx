@@ -4,7 +4,6 @@ import Stats from '../components/Stats'
 import VisionMission from '../components/VisionMission'
 import ServicesBento from '../components/ServicesBento'
 import Portfolio from '../components/Portfolio'
-import FeaturedSpotlight from '../components/FeaturedSpotlight'
 import WhyChoose from '../components/WhyChoose'
 import Testimonials from '../components/Testimonials'
 import Team from '../components/Team'
@@ -19,13 +18,12 @@ export default function Home({ onNavigate }) {
       <Stats />
       <VisionMission onNavigate={onNavigate} />
       <ServicesBento onNavigate={onNavigate} />
-      <FeaturedSpotlight onNavigate={onNavigate} />
-      <Portfolio onNavigate={onNavigate} />
+      <Portfolio onNavigate={onNavigate} home />
       <WhyChoose />
+      <IntegrationNetwork />
       <Testimonials />
       <Team onNavigate={onNavigate} />
       <CTA onNavigate={onNavigate} />
-      <IntegrationNetwork />
     </>
   )
 }

@@ -41,7 +41,7 @@ export default function Hero({ onNavigate }) {
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Vanta Clouds background */}
       <div ref={vantaRef} className="absolute inset-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0F]/70 via-[#0A0A0F]/55 to-[#0A0A0F]/90" style={{ backdropFilter: 'blur(50px)' }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0F]/70 via-[#0A0A0F]/55 to-[#0A0A0F]/10" style={{ backdropFilter: 'blur(50px)' }} />
       {/* Background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#612C8B]/15 blur-[120px] animate-float" />
@@ -68,8 +68,8 @@ export default function Hero({ onNavigate }) {
             {brand.tagline}
           </span>
           <br />
-          <span className="text-white">We Build Websites </span>
-          <span className="bg-gradient-to-r from-[#E9DDFF] via-[#B98AF0] to-[#8B4FBF] bg-clip-text text-transparent">
+          <span className="block text-white">We Build Websites </span>
+          <span className="block bg-gradient-to-r from-[#E9DDFF] via-[#B98AF0] to-[#8B4FBF] bg-clip-text text-transparent">
             With A Purpose
           </span>
         </motion.h1>

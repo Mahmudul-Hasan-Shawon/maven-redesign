@@ -43,9 +43,9 @@ export default function WhyChoose() {
             7 Reasons For Success
           </span>
           <h2 className="font-black leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
-            Why Choose Maven{' '}
-            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
-              For Web Design & Marketing
+            Why Choose Maven For{' '}
+            <span className="block bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
+              Web Design &amp; Marketing
             </span>
           </h2>
         </motion.div>
