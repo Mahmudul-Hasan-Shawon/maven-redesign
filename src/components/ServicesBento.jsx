@@ -130,7 +130,10 @@ export default function ServicesBento({ onNavigate }) {
             Elevate Your Business
             <br />
             with{' '}
-            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent text-4xl md:text-6xl">
+            <span
+              style={{ fontFamily: "'Sora', sans-serif" }}
+              className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent text-5xl md:text-7xl font-extrabold"
+            >
               Our Services
             </span>
           </h2>

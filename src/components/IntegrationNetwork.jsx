@@ -354,7 +354,6 @@ export default function IntegrationNetwork() {
           margin: clamp(10px, 1.6vh, 18px) 0 8px;
           font-size: clamp(29px, 4.4vw, 52px);
           line-height: 1.01;
-          letter-spacing: -0.055em;
           font-weight: 900;
         }
 
@@ -460,8 +459,8 @@ export default function IntegrationNetwork() {
         .kb-icon {
           position: relative;
           z-index: 2;
-          width: 58%;
-          height: 58%;
+          width: 90%;
+          height: 90%;
           display: flex;
           align-items: center;
           justify-content: center;
