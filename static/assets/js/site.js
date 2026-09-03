@@ -9,7 +9,7 @@ const brand = {
   founded: 2019,
   phone: '(847) 558-9957',
   email: 'info@mavenmarketinggroup.com',
-  address: { street: '400 Lake Cook Rd Ste 106', city: 'Deerfield', state: 'IL', zip: '60015' },
+  address: { street: '715 Ela Rd.', city: 'Lake Zurich', state: 'IL', zip: '60047' },
   social: {
     instagram: 'https://www.instagram.com/mavenmg/',
     facebook: 'https://www.facebook.com/mavenmg',

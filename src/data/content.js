@@ -13,10 +13,10 @@ export const brand = {
   phone: '(847) 558-9957',
   email: 'info@mavenmarketinggroup.com',
   address: {
-    street: '400 Lake Cook Rd Ste 106',
-    city: 'Deerfield',
+    street: '715 Ela Rd.',
+    city: 'Lake Zurich',
     state: 'IL',
-    zip: '60015',
+    zip: '60047',
   },
   social: {
     instagram: 'https://www.instagram.com/mavenmg/',
