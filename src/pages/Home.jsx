@@ -20,9 +20,9 @@ export default function Home({ onNavigate }) {
       <ServicesBento onNavigate={onNavigate} />
       <Portfolio onNavigate={onNavigate} home />
       <WhyChoose />
-      <IntegrationNetwork />
       <Testimonials />
-      <Team onNavigate={onNavigate} />
+      <IntegrationNetwork />
+      <Team onNavigate={onNavigate} showCallout={false} title="The Experts Behind Your Success" />
       <CTA onNavigate={onNavigate} />
     </>
   )

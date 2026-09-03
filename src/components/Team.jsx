@@ -3,8 +3,13 @@ import { useInView } from '../hooks/useAnimations'
 import { team } from '../data/content'
 import { Code, Megaphone, Sparkles } from 'lucide-react'
 
-export default function Team() {
+export default function Team({ showCallout = true, title = team.title }) {
   const [ref, inView] = useInView()
+
+  const isCustomTitle = title !== team.title
+  const words = title.split(' ')
+  const lastTwo = words.slice(-2).join(' ')
+  const leadText = words.slice(0, -2).join(' ')
 
   return (
     <section ref={ref} className="py-32 px-6 relative overflow-hidden">
@@ -12,17 +17,26 @@ export default function Team() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-start mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-xs font-semibold tracking-wider uppercase mb-6">
             The Marketing Mavens
           </span>
           <h2 className="font-black mb-4 leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
-            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
-              {team.title}
-            </span>
+            {isCustomTitle ? (
+              <>
+                <span className="text-white">{leadText}</span>{' '}
+                <span className="block text-[#612C8B]">
+                  {lastTwo}
+                </span>
+              </>
+            ) : (
+              <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
+                {title}
+              </span>
+            )}
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-3xl text-lg leading-relaxed">
             {team.intro}
           </p>
         </motion.div>
@@ -76,6 +90,7 @@ export default function Team() {
           </div>
         </div>
 
+        {showCallout && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -92,6 +107,7 @@ export default function Team() {
             </p>
           </div>
         </motion.div>
+        )}
       </div>
     </section>
   )

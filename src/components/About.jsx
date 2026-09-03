@@ -61,7 +61,7 @@ export default function About() {
         <motion.div variants={fadeUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div>
 
-            <h3 className="text-2xl md:text-3xl font-black mb-6">
+            <h3 className="text-2xl md:text-6xl font-black mb-6">
               Our{' '}
               <span className="text-[#612C8B]">Vision</span>
             </h3>
@@ -92,7 +92,7 @@ export default function About() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <h3 className="text-2xl md:text-3xl font-black mb-6">
+            <h3 className="text-2xl md:text-6xl font-black mb-6">
               Our{' '}
               <span className="text-[#8B4FBF]">Mission</span>
             </h3>
@@ -105,16 +105,17 @@ export default function About() {
         {/* ===== Row 4: Marketing Mavens — Text Left, Visual Right ===== */}
         <motion.div variants={fadeUp} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div>   
-            <h3 className="text-2xl md:text-3xl font-black mb-6">
+            <h3 className="text-2xl md:text-8xl font-black mb-6">
               The{' '}
-              <span className="text-[#DACAFF]">Marketing Mavens</span>
+              <span className="text-[#fffeff]">Marketing</span>
+              <span className="text-[#612c8b]"> Mavens</span>
             </h3>
             <p className="text-gray-400 text-lg leading-relaxed">
               At Maven, we bring together the finest minds in digital strategy and web design. Our web masters craft powerhouse platforms optimized for SEO, and our online marketers devise bespoke digital marketing campaigns that dominate industries.
             </p>
           </div>
           <div className="relative">
-            <div className="absolute -inset-3 bg-gradient-to-r from-[#DACAFF]/15 to-[#8B4FBF]/15 blur-2xl" />
+            <div className="absolute -inset-3 bg-gradient-to-r from-[#DACAFF]/5 to-[#8B4FBF]/15 blur-2xl" />
             <img
               src="/images/maven.png"
               alt="The Marketing Mavens"

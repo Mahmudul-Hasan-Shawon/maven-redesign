@@ -22,7 +22,7 @@ function ReasonCard({ reason, index, hovered }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.08, duration: 0.6 }}
-      className="group relative glass rounded-3xl p-7 hover:border-[#612C8B]/30 transition-all duration-500 hover:-translate-y-1"
+      className="group relative h-full flex flex-col glass rounded-3xl p-7 hover:border-[#612C8B]/30 transition-all duration-500 hover:-translate-y-1"
     >
       <motion.div
         animate={animation}
@@ -35,8 +35,8 @@ function ReasonCard({ reason, index, hovered }) {
         <Icon size={24} className="text-[#8B4FBF]" />
       </div>
       <h3 className="font-bold text-lg mb-3">{reason.title}</h3>
-      <p className="text-gray-400 text-base leading-relaxed mb-5">{reason.description}</p>
-      <a className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B4FBF] hover:text-[#DACAFF] transition-colors cursor-pointer group/link">
+      <p className="text-gray-400 text-base leading-relaxed mb-5 flex-grow">{reason.description}</p>
+      <a className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B4FBF] hover:text-[#DACAFF] transition-colors cursor-pointer group/link mt-auto">
         Start Your Project
         <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
       </a>
@@ -60,8 +60,8 @@ export default function WhyChoose() {
             7 Reasons For Success
           </span>
           <h2 className="font-black leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
-            Why Choose Maven For{' '}
-            <span className="block bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
+            Why Choose <span className="text-[#8B4FBF]">Maven</span> For{' '}
+            <span className="block text-[0.8em] bg-gradient-to-r from-[#fefdff] to-[#fdfbff] bg-clip-text text-transparent">
               Web Design &amp; Marketing
             </span>
           </h2>
@@ -71,6 +71,7 @@ export default function WhyChoose() {
           {reasons.map((reason, i) => (
             <div
               key={i}
+              className="h-full"
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
             >

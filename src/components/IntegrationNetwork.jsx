@@ -122,14 +122,15 @@ function AnimatedBeam({
   )
 }
 
-const IntegrationNode = forwardRef(function IntegrationNode({ img, icon, name, large = false }, ref) {
+const IntegrationNode = forwardRef(function IntegrationNode({ img, icon, name, large = false, delay = 0 }, ref) {
   return (
     <div className="kb-node-wrap">
       <motion.div
         ref={ref}
         className={`kb-node ${large ? 'kb-node-large' : ''}`}
+        animate={{ x: [0, 6, 0, -6, 0], y: [0, -5, 0, 5, 0] }}
+        transition={{ duration: 9, delay, repeat: Infinity, ease: 'easeInOut' }}
         whileHover={{ scale: 1.09, y: -4 }}
-        transition={{ type: 'spring', stiffness: 280, damping: 18 }}
       >
         <span className="kb-node-shine" />
         <div className="kb-icon">
@@ -186,19 +187,19 @@ export default function IntegrationNetwork() {
 
             <div ref={containerRef} className="kb-network">
               <div className="kb-column kb-left">
-                <IntegrationNode ref={slackRef} img="/images/slack.png" name="Slack" />
-                <IntegrationNode ref={meetRef} img="/images/google-meet.png" name="Meet" />
-                <IntegrationNode ref={whatsappRef} img="/images/whatsapp.png" name="WhatsApp" />
+                <IntegrationNode ref={slackRef} img="/images/slack.png" name="Slack" delay={0} />
+                <IntegrationNode ref={meetRef} img="/images/google-meet.png" name="Meet" delay={1.2} />
+                <IntegrationNode ref={whatsappRef} img="/images/whatsapp.png" name="WhatsApp" delay={2.4} />
               </div>
 
               <div className="kb-center">
-                <IntegrationNode ref={centerRef} img="/images/maven.png" name="Maven" large />
+                <IntegrationNode ref={centerRef} img="/images/maven.png" name="CoachPlatypus" large delay={1.8} />
               </div>
 
               <div className="kb-column kb-right">
-                <IntegrationNode ref={firebaseRef} img="/images/firebase.png" name="Firebase" />
-                <IntegrationNode ref={cloudflareRef} img="/images/cloudflare.png" name="Cloudflare" />
-                <IntegrationNode ref={githubRef} img="/images/github.png" name="GitHub" />
+                <IntegrationNode ref={firebaseRef} img="/images/firebase.png" name="Firebase" delay={3.1} />
+                <IntegrationNode ref={cloudflareRef} img="/images/cloudflare.png" name="Cloudflare" delay={0.6} />
+                <IntegrationNode ref={githubRef} img="/images/github.png" name="GitHub" delay={2.1} />
               </div>
 
               <AnimatedBeam

@@ -42,7 +42,7 @@ export default function Testimonials() {
           </span>
           <h2 className="font-black leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
             From The Best Clients{' '}
-            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
               In The World
             </span>
           </h2>
