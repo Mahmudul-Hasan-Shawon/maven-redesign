@@ -123,7 +123,7 @@ function renderNavbar() {
 
     ph.outerHTML = `
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 border-b border-transparent py-5">
-      <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="flex items-center cursor-pointer">
           <img src="images/logo.png" alt="${brand.name}" class="h-10 w-auto" />
         </a>

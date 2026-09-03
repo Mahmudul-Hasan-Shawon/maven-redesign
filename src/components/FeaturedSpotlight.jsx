@@ -8,7 +8,7 @@ export default function FeaturedSpotlight({ onNavigate }) {
   const project = portfolio.find((p) => p.featured) || portfolio[0]
 
   return (
-    <section ref={ref} className="py-24 px-6">
+    <section ref={ref} className="py-24 lg:pt-36 lg:pb-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,7 +18,7 @@ export default function FeaturedSpotlight({ onNavigate }) {
         >
           <div className="absolute inset-0">
             <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0F]/95 via-[#0A0A0F]/80 to-[#0A0A0F]/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0F]/95 via-[#0A0A0F]/20 to-[#0A0A0F]/0" />
           </div>
 
           <div className="relative p-8 md:p-14 max-w-xl">
@@ -26,26 +26,38 @@ export default function FeaturedSpotlight({ onNavigate }) {
               <Star size={14} />
               Featured Project
             </div>
-            <h3 className="text-2xl md:text-4xl font-black mb-3">{project.name}</h3>
-            <div className="text-sm font-semibold text-[#8B4FBF] uppercase tracking-wider mb-4">
-              {project.category}
-            </div>
+            <h3 className="text-4xl md:text-6xl font-black mb-3 leading-tight">
+              HAQ Pickle<br />
+              Pickleball
+            </h3>
             <p className="text-gray-300 text-base leading-relaxed mb-6">
-              {project.blurb} What started as a passion project became a full-scale e-commerce success — custom-built, lightning fast, and designed to convert.
+                The HAQ Pickle Pickleball started as a fun idea between a father and son, two avid pickleball players.
+                <br /><br />
+                After "dinking" around a few ideas to create something unique that picklers had never seen before, an idea started coming to life.
             </p>
-            <div className="flex flex-wrap items-center gap-3 mb-8">
+            {/* <div className="flex flex-wrap items-center gap-3 mb-8">
               {project.services.split(', ').map((s) => (
                 <span key={s} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
                   {s}
                 </span>
               ))}
+            </div> */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                onClick={() => onNavigate('/contact')}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#612C8B] to-[#8B4FBF] rounded-full font-semibold text-sm text-white hover:shadow-[0_8px_30px_rgba(97,44,139,0.4)] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              >
+                Start Your Project <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://haqpickle.com"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-full font-semibold text-sm text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              >
+                Visit Website
+              </a>
             </div>
-            <a
-              onClick={() => onNavigate('/contact')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#612C8B] to-[#8B4FBF] rounded-full font-semibold text-sm text-white hover:shadow-[0_8px_30px_rgba(97,44,139,0.4)] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-            >
-              See How We Can Help You <ArrowRight size={16} />
-            </a>
           </div>
         </motion.div>
       </div>

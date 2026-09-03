@@ -62,14 +62,11 @@ export default function Portfolio({ onNavigate }) {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-xs font-semibold tracking-wider uppercase mb-6">
-            Our Work
-          </span>
+
           <h2 className="font-black mb-4 leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
-            Purpose Driven Websites{' '}
-            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
-              That Build Your Brand
-            </span>
+            Purpose Driven Websites
+            <br />
+            <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">Build Your Brand</span>
           </h2>
         </motion.div>
 
@@ -105,12 +102,7 @@ export default function Portfolio({ onNavigate }) {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <a
-            onClick={() => onNavigate('/contact')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#612C8B] to-[#8B4FBF] rounded-full font-semibold hover:shadow-[0_8px_30px_rgba(97,44,139,0.4)] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-          >
-            Start Your Project
-          </a>
+      
         </motion.div>
       </div>
     </section>

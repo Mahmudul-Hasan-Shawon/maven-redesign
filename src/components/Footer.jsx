@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useAnimations'
 import { brand } from '../data/content'
-import { Phone, Mail, MapPin, Clock, Send, Check, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 const socialIcons = {
   instagram: (
@@ -44,120 +41,14 @@ const legalLinks = [
 ]
 
 export default function Footer({ onNavigate }) {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-  const [ref, inView] = useInView()
-
-  const handleSubscribe = (e) => {
-    e.preventDefault()
-    if (email) setSubscribed(true)
-  }
-
-  const fadeUp = {
-    initial: { opacity: 0, y: 28 },
-    animate: inView ? { opacity: 1, y: 0 } : {},
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  }
-
   return (
-    <footer ref={ref} className="relative overflow-hidden bg-[#07070C] border-t border-white/5">
+    <footer className="relative overflow-hidden bg-[#07070C] border-t border-white/5">
       {/* Glow accents */}
       <div className="absolute -top-40 left-1/4 w-[500px] h-[500px] rounded-full bg-[#612C8B]/10 blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 right-1/5 w-[400px] h-[400px] rounded-full bg-[#8B4FBF]/10 blur-[140px] pointer-events-none" />
 
-      {/* ===== Main CTA Card (maven.png) ===== */}
-      <div className="relative max-w-6xl mx-auto px-6 pt-16">
-        <motion.div {...fadeUp} className="cta-card">
-          <div className="cta-card-glow cta-card-glow-one" />
-          <div className="cta-card-glow cta-card-glow-two" />
-          <div className="cta-noise" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
-            <div className="max-w-xl text-center lg:text-left">
-              <span className="cta-badge">
-                <span className="cta-badge-dot" />
-                Independent creative studio
-              </span>
-              <h2 className="cta-heading">
-                Let&rsquo;s create something
-                <br />
-                impossible to ignore.
-              </h2>
-              <p className="cta-sub">
-                Strategy, design and digital experiences made for brands ready to move differently.
-              </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                <a onClick={() => onNavigate('/contact')} className="cta-primary">
-                  Start a project <ArrowRight size={18} />
-                </a>
-                <a onClick={() => onNavigate('/portfolio')} className="cta-secondary group">
-                  View selected work <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="cta-art"
-              aria-hidden="true"
-            >
-              <div className="cta-art-halo" />
-              <img src="/images/maven.png" alt="" className="cta-art-img" />
-              <div className="cta-float cta-float-square"><span /></div>
-              <div className="cta-float cta-float-circle"><span /></div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Newsletter CTA strip */}
-      <div className="relative max-w-6xl mx-auto px-6 pt-16">
-        <div
-          className="rounded-3xl p-8 md:p-10 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #4A1F6B 0%, #612C8B 55%, #8B4FBF 100%)' }}
-        >
-          <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-white/10" />
-          <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-white/5" />
-          <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="max-w-md">
-              <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
-                Stay in the Loop
-              </h3>
-              <p className="text-white/75 text-base">
-                Get the latest marketing tips, success stories, and exclusive offers — straight to your inbox.
-              </p>
-            </div>
-            {subscribed ? (
-              <div className="flex items-center gap-3 bg-white/15 backdrop-blur-sm rounded-2xl px-6 py-4">
-                <Check size={20} className="text-white" />
-                <span className="text-white font-semibold">You're subscribed! Welcome to the Maven family.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="w-full lg:w-auto flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="flex-1 min-w-[260px] px-5 py-4 rounded-2xl bg-white/15 border border-white/20 text-white text-sm placeholder:text-white/60 focus:border-white/50 focus:ring-2 focus:ring-white/30 outline-none transition-all"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#4A1F6B] rounded-2xl font-bold text-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Subscribe <Send size={16} />
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-
       {/* Main footer grid */}
-      <div className="relative max-w-6xl mx-auto px-6 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-2">
@@ -247,7 +138,7 @@ export default function Footer({ onNavigate }) {
 
       {/* Bottom bar */}
       <div className="relative border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-xs text-center sm:text-left">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>

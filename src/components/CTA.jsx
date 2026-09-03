@@ -18,17 +18,19 @@ export default function CTA({ onNavigate }) {
           }}
         >
           {/* Background image */}
-          <img src="/images/cta.jpg" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+          <img src="/images/success.png" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" style={{ maskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,1) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,1) 100%)' }} />
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0F]/60 via-[#0A0A0F]/25 to-[#0A0A0F]/0" />
           {/* Decorative circles */}
-          <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5" />
-          <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-white/5" />
-          <div className="absolute top-1/2 right-10 w-24 h-24 rounded-full bg-white/5" />
+          {/* <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-white/5" />
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-white/5" /> */}
+          {/* <div className="absolute top-1/2 right-10 w-24 h-24 rounded-full bg-white/5" /> */}
 
-          <div className="relative z-10">
+          <div className="relative z-10 text-left">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
               Start Your Success Story
             </h2>
-            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-white/70 text-lg mb-8 max-w-xl">
               Connect With A Marketing Maven Now. Elevate your website and supercharge your digital marketing results.
             </p>
             <a

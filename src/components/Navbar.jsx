@@ -40,7 +40,7 @@ export default function Navbar({ onNavigate, activePath }) {
             : 'bg-transparent border-transparent'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 lg:px-0 flex items-center justify-between">
           <a onClick={() => navigate('/')} className="flex items-center cursor-pointer">
             <img src="/images/logo.png" alt={brand.name} className="h-10 w-auto" />
           </a>
