@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for direct-upload deployment.
+# After running `npx wrangler login` once, deploy the static site with:
+#   npx wrangler pages deploy static --project-name mavenmarketinggroup --branch main
+name = "mavenmarketinggroup"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "./static"
