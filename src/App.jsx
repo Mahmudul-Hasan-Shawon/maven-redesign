@@ -28,6 +28,7 @@ export default function App() {
     }
   }, [])
 
+  
   const scrollToTop = () => {
     if (window.lenis) {
       window.lenis.scrollTo(0, { duration: 0.8 })
