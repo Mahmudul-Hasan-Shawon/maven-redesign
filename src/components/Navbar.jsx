@@ -5,29 +5,39 @@ import { navLinks, brand } from '../data/content'
 
 export default function Navbar({ onNavigate, activePath }) {
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
+    let lastY = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 50)
+      if (Math.abs(y - lastY) > 4) {
+        setHidden(y > lastY && y > 80)
+      }
+      lastY = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const navigate = (href) => {
     onNavigate(href)
     setMobileOpen(false)
+    setHidden(false)
   }
 
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        animate={{ y: hidden ? -110 : 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 py-4 border-b transition-colors duration-500 ${
           scrolled
-            ? 'bg-[#0A0A0F]/80 backdrop-blur-2xl border-b border-white/5 py-3'
-            : 'py-5'
+            ? 'bg-[#0A0A0F]/70 backdrop-blur-md border-white/5'
+            : 'bg-transparent border-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">

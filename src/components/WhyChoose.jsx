@@ -42,7 +42,7 @@ export default function WhyChoose() {
           <span className="inline-block px-4 py-1.5 rounded-full border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-xs font-semibold tracking-wider uppercase mb-6">
             7 Reasons For Success
           </span>
-          <h2 className="text-3xl md:text-5xl font-black">
+          <h2 className="font-black leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
             Why Choose Maven{' '}
             <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
               For Web Design & Marketing

@@ -21,7 +21,7 @@ export default function VisionMission() {
           <span className="inline-block px-4 py-1.5 rounded-full border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-xs font-semibold tracking-wider uppercase mb-6">
             Vision & Mission
           </span>
-          <h2 className="text-3xl md:text-5xl font-black mb-4">
+          <h2 className="font-black mb-4 leading-[1.05] text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]">
             {vision.title.split(' & ')[0]}{' '}
             <span className="bg-gradient-to-r from-[#DACAFF] to-[#8B4FBF] bg-clip-text text-transparent">
               & {vision.title.split(' & ')[1]}

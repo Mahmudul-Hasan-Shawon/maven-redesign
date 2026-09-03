@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { brand } from '../data/content'
@@ -15,18 +16,32 @@ const item = {
 
 export default function Hero({ onNavigate }) {
   const [ref, inView] = useInView()
+  const vantaRef = useRef(null)
+
+  useEffect(() => {
+    if (!vantaRef.current || typeof window === 'undefined' || !window.VANTA) return
+    const vanta = window.VANTA.HALO({
+      el: vantaRef.current,
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 400.0,
+      minWidth: 200.0,
+      baseColor: 0x784cb9,
+      backgroundColor: 0x0,
+      amplitudeFactor: 1.50,
+      size: 3.00
+    })
+    return () => {
+      if (vanta && vanta.destroy) vanta.destroy()
+    }
+  }, [])
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image + overlay */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero.jpg"
-          alt="Marketing team collaborating on a project"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0F]/85 via-[#0A0A0F]/75 to-[#0A0A0F]" />
-      </div>
+      {/* Vanta Clouds background */}
+      <div ref={vantaRef} className="absolute inset-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0F]/70 via-[#0A0A0F]/55 to-[#0A0A0F]/90" style={{ backdropFilter: 'blur(50px)' }} />
       {/* Background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#612C8B]/15 blur-[120px] animate-float" />
@@ -47,7 +62,7 @@ export default function Hero({ onNavigate }) {
       >
         <motion.h1
           variants={item}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-6"
+          className="font-black leading-[1.05] tracking-tight mb-6 text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
         >
           <span className="inline-block px-4 py-1 rounded-xl border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-sm sm:text-base md:text-lg font-bold tracking-tight mb-4">
             {brand.tagline}
