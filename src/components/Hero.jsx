@@ -62,13 +62,13 @@ export default function Hero({ onNavigate }) {
       >
         <motion.h1
           variants={item}
-          className="font-black leading-[1.05] tracking-tight mb-6 text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5.5vw,4.5rem)]"
+          className="font-black leading-[1.05] tracking-tight mb-6 text-[clamp(2rem,8vw,3.4rem)] md:text-[clamp(2.5rem,5vw,4.5rem)]"
         >
           <span className="inline-block px-4 py-1 rounded-xl border border-[#612C8B]/30 bg-[#612C8B]/10 text-[#DACAFF] text-sm sm:text-base md:text-lg font-bold tracking-tight mb-4">
             {brand.tagline}
           </span>
           <br />
-          <span className="block text-white">We Build Websites </span>
+          <span className="block text-white" style={{ fontSize: '5vw' }}>We Build Websites </span>
           <span className="block bg-gradient-to-r from-[#E9DDFF] via-[#B98AF0] to-[#8B4FBF] bg-clip-text text-transparent">
             With A Purpose
           </span>

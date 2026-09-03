@@ -29,7 +29,9 @@ export function useCountUp(end, duration = 2000, startOnView = false) {
     const step = (now) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.round(end * eased))
+      const raw = end * eased
+      const dec = (end % 1 !== 0) ? 1 : 0
+      setCount(dec ? Number(raw.toFixed(dec)) : Math.round(raw))
       if (progress < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)

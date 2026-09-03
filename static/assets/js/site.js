@@ -429,9 +429,9 @@ function initStats() {
       const p = Math.min((now - start) / dur, 1)
       const eased = 1 - Math.pow(1 - p, 3)
       const val = target * eased
-      el.textContent = prefix + (decimal ? val.toFixed(decimal) : Math.round(val).toLocaleString()) + suffix
+      el.textContent = prefix + (decimal ? (Math.round(val * 100) / 100).toString() : Math.round(val).toLocaleString()) + suffix
       if (p < 1) requestAnimationFrame(tick)
-      else el.textContent = prefix + (decimal ? target.toFixed(decimal) : target.toLocaleString()) + suffix
+      else el.textContent = prefix + (decimal ? (Math.round(target * 100) / 100).toString() : target.toLocaleString()) + suffix
     }
     requestAnimationFrame(tick)
   }

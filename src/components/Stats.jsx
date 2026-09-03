@@ -24,10 +24,10 @@ function StatCard({ stat, index }) {
       className="relative group"
     >
       <div className="glass rounded-3xl p-8 text-center hover:border-[#612C8B]/30 transition-all duration-500 h-full">
-        <div className="text-5xl md:text-6xl font-black bg-gradient-to-br from-[#DACAFF] to-[#612C8B] bg-clip-text text-transparent mb-2">
-          {stat.prefix}{count.toLocaleString()}{stat.suffix}
+        <div className="font-black bg-gradient-to-br from-[#DACAFF] to-[#612C8B] bg-clip-text text-transparent mb-2 text-[4vw]">
+          {stat.prefix}{stat.value % 1 !== 0 ? count.toFixed(1) : count.toLocaleString()}{stat.suffix}
         </div>
-        <div className="text-white font-semibold text-lg mb-3">{stat.label}</div>
+        <div className="text-white font-semibold text-2xl mb-3">{stat.label}</div>
         <p className="text-gray-500 text-base leading-relaxed">{stat.description}</p>
       </div>
     </motion.div>

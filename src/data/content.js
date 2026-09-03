@@ -27,9 +27,9 @@ export const brand = {
 }
 
 export const stats = [
-  { value: 1, prefix: '$', suffix: 'B+', label: 'Revenue Generated', description: 'We have driven more than $1 billion in revenue for our clients through effective website management and digital marketing strategies.' },
-  { value: 10000, suffix: '+', label: 'Leads Generated', description: 'Thousands of qualified leads delivered to businesses through our data-driven SEO and PPC campaigns.' },
-  { value: 500, suffix: '+', label: 'Businesses Helped', description: 'From startups to established enterprises, we have helped businesses across the US and the world grow.' },
+  { value: 500, prefix: '$', suffix: 'M+', label: 'Revenue Generated', description: 'We have driven more than $500 million in revenue for our clients through effective website management and digital marketing strategies.' },
+  { value: 3.6, suffix: 'M+', label: 'Leads Generated', description: 'Thousands of qualified leads delivered to businesses through our data-driven SEO and PPC campaigns.' },
+  { value: 300, suffix: '+', label: 'Businesses Helped', description: 'From startups to established enterprises, we have helped businesses across the US and the world grow.' },
 ]
 
 export const services = [
