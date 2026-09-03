@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import ServicesPackages from '../components/ServicesPackages'
-import CTA from '../components/CTA'
 
 export default function ServicesPage({ onNavigate }) {
   return (
@@ -53,7 +52,6 @@ export default function ServicesPage({ onNavigate }) {
         </div>
       </section>
       <ServicesPackages onNavigate={onNavigate} />
-      <CTA onNavigate={onNavigate} />
     </>
   )
 }

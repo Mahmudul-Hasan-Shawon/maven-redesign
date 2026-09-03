@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useAnimations'
 import { packages } from '../data/content'
@@ -5,6 +6,7 @@ import { ArrowRight, Check, BadgeCheck } from 'lucide-react'
 
 export default function ServicesPackages({ onNavigate }) {
   const [ref, inView] = useInView()
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <section ref={ref} className="py-24 px-6 relative overflow-hidden">
@@ -55,16 +57,27 @@ export default function ServicesPackages({ onNavigate }) {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.4 }}
-          className="mt-10 rounded-3xl p-8 text-center relative overflow-hidden"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="mt-10 rounded-3xl p-8 text-center relative overflow-hidden cursor-pointer"
           style={{ background: 'linear-gradient(135deg, #4A1F6B 0%, #612C8B 55%, #8B4FBF 100%)' }}
         >
           <div className="absolute -top-16 -left-16 w-48 h-48 rounded-full bg-white/10" />
           <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-white/10" />
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className={`relative flex flex-col md:flex-row items-center justify-center gap-4 transition-all duration-500 ${isHovered ? 'blur-sm opacity-0' : 'blur-none opacity-100'}`}>
             <BadgeCheck size={32} className="text-white/90 flex-shrink-0" />
             <p className="text-white text-lg font-semibold">
               Let us help you build a website that not only looks great but also drives results. Contact us today to discuss your project.
             </p>
+          </div>
+          <div className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <a
+              onClick={() => onNavigate('/contact')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#4A1F6B] rounded-full font-bold text-lg hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            >
+              Start Your Project
+              <ArrowRight size={20} />
+            </a>
           </div>
         </motion.div>
       </div>
